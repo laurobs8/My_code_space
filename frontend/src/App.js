@@ -6,7 +6,9 @@ function App() {
 
   async function teste() {
     const arquivos = await api.get('/')
-    console.log('API', arquivos.data)
+    const dados = arquivos.data.split(',')
+
+    console.log(dados)
   }
 
   return (
