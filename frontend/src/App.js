@@ -1,22 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import api from './service/api'
 
-function App() {
+export default function App() {
 
-  async function teste() {
-    const arquivos = await api.get('/')
-    const dados = arquivos.data.split(',')
+  const [pastas, setPastas] = useState([]);
 
-    console.log(dados)
-  }
+  useEffect(async () => {
+    const response = await api.get('/')
+    const RESPONSE = response.data.split(',')
+    console.log(RESPONSE)
+    setPastas(RESPONSE)
+  }, [])
 
   return (
-    <div className="App">
-      <p>Teste</p>
-      <button onClick={teste}>Click</button>
-    </div>
+    <ul>
+      {pastas.map(pasta => <li key={pasta.id}>{pasta}</li>)}
+    </ul>
   );
 }
 
-export default App;
+
+// export default App;
