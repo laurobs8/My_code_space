@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <ul>
-      {pastas.map(pasta => <li key={pasta.id}>{pasta}</li>)}
+      {pastas.map(pasta => <div className="folderBoxes" key={pasta.id}>{pasta}</div>)}
     </ul>
   );
 }
