@@ -13,9 +13,13 @@ export default function App() {
     setPastas(RESPONSE)
   }, [])
 
+  function openEditor() {
+    alert('teste')
+  }
+
   return (
     <ul>
-      {pastas.map(pasta => <div className="folderBoxes" key={pasta.id}>{pasta}</div>)}
+      {pastas.map(pasta => <div onClick={openEditor} className="folderBoxes" key={pasta.id}>{pasta}</div>)}
     </ul>
   );
 }
